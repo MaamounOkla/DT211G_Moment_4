@@ -89,4 +89,28 @@ document.addEventListener('DOMContentLoaded', function () {
         isEnlarged = !isEnlarged;
       });
     });
+
+
+    //skjutande boll animering
+    document.getElementById('interactiveButton').addEventListener('click', function() {
+      const container = document.querySelector('.button-container');
+      const ball = document.createElement('div');
+      ball.classList.add('shooting-ball');
+    
+      // random färg
+      const colors = ['#e74c3c', '#8e44ad', '#3498db', '#1abc9c', '#f1c40f', '#e67e22', '#2ecc71'];
+      ball.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    
+      // random position
+      const x = Math.random() * container.clientWidth;
+      ball.style.left = `${x}px`;
+      ball.style.bottom = '0px';
+    
+      container.appendChild(ball);
+    
+      // ta bort bollen när animeringen är slut
+      ball.addEventListener('animationend', () => {
+        ball.remove();
+      });
+    });
 });

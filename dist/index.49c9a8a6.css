@@ -66,8 +66,96 @@
   }
 }
 
+@keyframes background-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes moveAround {
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotate(40deg);
+  }
+
+  25% {
+    top: 0;
+    left: 100%;
+    transform: rotate(120deg);
+  }
+
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: rotate(220deg);
+  }
+
+  75% {
+    top: 100%;
+    left: 0;
+    transform: rotate(-60deg);
+  }
+
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotate(40deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  10% {
+    transform: translateY(-200px);
+  }
+
+  20% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-150px);
+  }
+
+  40% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-100px);
+  }
+
+  60% {
+    transform: translateY(0);
+  }
+
+  70% {
+    transform: translateY(-50px);
+  }
+
+  80% {
+    transform: translateY(0);
+  }
+
+  90% {
+    transform: translateY(-25px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 nav {
-  z-index: 2;
+  z-index: 20;
   background-color: #204893;
   justify-content: center;
   align-items: center;
@@ -99,7 +187,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #badef8;
+  color: #eff8ff;
   text-decoration: none;
 }
 
@@ -199,21 +287,6 @@ nav ul li a:hover {
   padding: 1rem;
 }
 
-.report pre, .report span {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  background-color: #d0f3ff;
-  margin: 1rem 0;
-  padding: .4rem;
-  overflow: auto;
-}
-
-.report span {
-  width: fit-content;
-  padding: .1rem .2rem;
-  line-height: 2rem;
-}
-
 .report ul li {
   list-style: disc;
 }
@@ -227,7 +300,7 @@ nav ul li a:hover {
 }
 
 @media screen and (width <= 768px) {
-  pre, .report span {
+  pre, span {
     margin: 0;
     padding: .4rem;
   }
@@ -275,11 +348,151 @@ img.reduce {
 }
 
 .footer-info {
-  color: #badef8;
+  color: #eff8ff;
+}
+
+.animation-container {
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  font-size: 2rem;
+  position: relative;
+}
+
+.container {
+  border: 1px solid #c9c9c9;
+  width: 100%;
+  padding: 3rem 1rem;
+}
+
+.animation-title {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(45deg, red, #ff7f00, #ff0, #0f0, #00f, indigo, #8b00ff) 0 0 / 400% 400%;
+  -webkit-background-clip: text;
+  font-size: 2rem;
+  font-weight: bold;
+  animation: 2s ease-in-out infinite alternate background-move;
+}
+
+.button-container {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  margin: 3rem 0;
+  display: flex;
+  position: relative;
+}
+
+.button {
+  color: #fff;
+  cursor: pointer;
+  z-index: 12;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  transition: all .3s;
+  position: absolute;
+  bottom: -40px;
+}
+
+.button:hover {
+  background-color: #2980b9;
+  border-radius: 8px;
+  transform: scale(1.01);
+}
+
+.button:active {
+  transform: scale(.9);
+}
+
+.shooting-ball {
+  background-color: #e74c3c;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: 5s infinite bounce;
+  position: absolute;
+}
+
+.arrow-container {
+  z-index: 4;
+  width: 180px;
+  height: 220px;
+  margin: 1rem 0 6rem;
+  position: relative;
+}
+
+.box {
+  z-index: 1;
+  background-color: #c8db34;
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  box-shadow: 0 0 20px #989898;
+}
+
+.small-box {
+  z-index: 3;
+  background-color: #dff15a;
+  border: 2px dashed #204893;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  box-shadow: 0 0 10px #00f;
+}
+
+.arrow {
+  z-index: 10;
+  font-size: 1.4rem;
+  animation: 8s linear infinite moveAround;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+
+.ball-container {
+  width: 100%;
+  height: 30vh;
+  position: relative;
+}
+
+.ball {
+  background: radial-gradient(#fea144, #fa6f2f, red, #c50000);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  animation: 5s infinite bounce;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+}
+
+.buttom-line {
+  background: #000;
+  width: 100%;
+  height: 1px;
+  box-shadow: 1px 4px 7px 4px #b4b4b4;
+}
+
+@media screen and (width <= 768px) {
+  .animation-title {
+    font-size: 1rem;
+  }
 }
 
 body {
-  background-color: #5db2ef;
+  background-color: #89cbff;
 }
 
 * {
@@ -341,6 +554,21 @@ main {
   width: 100%;
   padding: 2rem;
   display: flex;
+}
+
+pre, span {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #d0f3ff;
+  margin: 1rem 0;
+  padding: .4rem;
+  overflow: auto;
+}
+
+span {
+  width: fit-content;
+  padding: .1rem .2rem;
+  line-height: 2rem;
 }
 
 @media screen and (width <= 768px) {

@@ -18,23 +18,7 @@
   ol, ul {
     padding: 1rem;
   }
-pre{
-  background-color: rgb(208, 243, 255);
-  margin: 1rem 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow: auto;
-  padding: 0.4rem;
-  
-}
 
-
-span{
- @extend pre;
-    line-height: 2rem;
-  padding: 0.1rem 0.2rem;
-  width: fit-content;
-}
   ul li {
     list-style: disc;
   }
