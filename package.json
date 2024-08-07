@@ -1,0 +1,16 @@
+{
+  "name": "dt211g_moment_4",
+  "version": "1.0.0",
+  "description": "Grafiska Effekter med CSS",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Maamoun Okla",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0"
+  }
+}
